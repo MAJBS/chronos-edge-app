@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronos Edge | Auditoría de Suavizamiento Geoestadístico</title>
+    <style>
+        :root {
+            --bg-dark: #050505;
+            --bg-card: #111111;
+            --primary: #0D47A1;
+            --accent-cyan: #00E5FF;
+            --accent-red: #FF1744;
+            --text-main: #F5F5F5;
+            --text-muted: #9E9E9E;
+        }
+        
+        * { box-sizing: border-box; }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* HEADER & HERO */
+        header {
+            padding: 80px 0 40px 0;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(0, 229, 255, 0.1);
+            color: var(--accent-cyan);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            border: 1px solid rgba(0, 229, 255, 0.2);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 0 0 20px 0;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .highlight-red { color: var(--accent-red); }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* BUTTONS */
+        .cta-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--text-main);
+            color: var(--bg-dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255,255,255,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid #333;
+        }
+
+        .btn-secondary:hover {
+            background: #1a1a1a;
+            border-color: #555;
+        }
+
+        /* THE PROBLEM SECTION */
+        .problem-section {
+            background: var(--bg-card);
+            border: 1px solid #222;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--accent-red);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .swath-demo {
+            background: #000;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        .line-blue { color: #1E88E5; font-weight: bold; }
+        .line-red { color: var(--accent-red); font-weight: bold; }
+
+        /* THE SOLUTION (GEA AI) */
+        .solution-section {
+            background: linear-gradient(180deg, #0D47A1 0%, #050505 100%);
+            border-radius: 16px;
+            padding: 60px 40px;
+            text-align: center;
+            margin-bottom: 60px;
+            border: 1px solid rgba(0, 229, 255, 0.2);
+        }
+
+        .solution-section h2 {
+            font-size: 2.5rem;
+            margin-top: 0;
+            color: #fff;
+        }
+
+        .solution-section p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid #222;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .problem-grid { grid-template-columns: 1fr; }
+            .cta-group { flex-direction: column; }
+            .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="container">
+        <div class="badge">Demostrador Tecnológico Bare-Metal</div>
+        <h1>El Kriging está destruyendo tu <span class="highlight-red">Alta Ley.</span></h1>
+        <p class="hero-subtitle">
+            Chronos Edge Engine no es un software de estimación más. Es una herramienta de auditoría de bolsillo diseñada para demostrar matemáticamente el <strong>Efecto de Suavizamiento</strong> del Variograma 1.0.
+        </p>
+        
+        <div class="cta-group">
+            <!-- REEMPLAZA EL ENLACE DEL APK AQUÍ -->
+            <a href="ENLACE_DE_TU_APK_AQUI" class="btn btn-secondary">↓ Descargar APK (El Demostrador)</a>
+            <a href="mailto:maycbenavides127@gmail.com?subject=Solicitud de evaluación para Demo GEA AI" class="btn btn-primary">Solicitar Demo GEA AI →</a>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="problem-section">
+            <div class="problem-grid">
+                <div>
+                    <h2 style="font-size: 2rem; margin-top: 0;">La trampa de la Estacionariedad</h2>
+                    <p style="color: var(--text-muted); font-size: 1.1rem;">
+                        La geoestadística tradicional asume linealidad. El resultado es un sesgo sistemático que recorta los picos de alta ley y los envía al botadero de desmonte, destruyendo entre el <strong>5% y el 25% del Valor Neto Presente (VNP)</strong> de tu mina.
+                    </p>
+                    <p style="color: var(--text-muted); font-size: 1.1rem;">
+                        Descarga la app, carga tu propio CSV y genera un reporte PDF de 3 páginas. El <strong>Swath Plot</strong> te mostrará la cruda realidad:
+                    </p>
+                </div>
+                <div class="swath-demo">
+                    <div style="margin-bottom: 15px; color: #888;">// Análisis de Swath Plot (Inspección 3D)</div>
+                    <div style="margin-bottom: 10px;">
+                        <span class="line-blue">■ Sondajes Reales:</span> 102.24 g/t (La realidad)
+                    </div>
+                    <div style="margin-bottom: 10px;">
+                        <span class="line-red">■ Modelo Kriging:</span> 51.12 g/t (Suavizado)
+                    </div>
+                    <div style="margin-top: 20px; padding-top: 15px; border-top: 1px dashed #333;">
+                        <span style="color: var(--accent-red);">⚠️ Pérdida de Picos de Ley: 50.0%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="solution-section">
+            <div class="badge" style="background: rgba(255,255,255,0.1); color: white; border-color: rgba(255,255,255,0.3);">La Evolución Definitiva</div>
+            <h2>Conoce GEA AI (SymGAT)</h2>
+            <p>
+                Superamos las limitaciones del Variograma 1.0 mediante una arquitectura <strong>Neuro-Simbólica</strong>. 
+                Integramos el aprendizaje estocástico profundo (Transformadores Espaciales) con un Escudo Simbólico de lógica axiomática determinista (SIL-3).
+            </p>
+            <p>
+                El resultado: Mapeo de la no-estacionariedad real sin suavizamiento artificial, <strong>recuperando en promedio un 18% de las reservas perdidas</strong> por mala clasificación, garantizando estabilidad operativa y riesgo cero.
+            </p>
+            <a href="mailto:maycbenavides127@gmail.com?subject=Solicitud de evaluación para Demo GEA AI" class="btn btn-primary" style="margin-top: 20px;">Coordinar Evaluación de DEMO</a>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p style="font-weight: bold; color: var(--text-main);">Chronos eye Labs.</p>
+            <p>Architected by Maycol Jhonatan Benavides Sánchez</p>
+            <p style="margin-top: 20px;">
+                <a href="https://www.linkedin.com/in/maycolbenavidess/" style="color: var(--accent-cyan); text-decoration: none;">Conectar en LinkedIn</a> | 
+                <a href="https://substack.com/@maycoljbenavidess" style="color: var(--accent-cyan); text-decoration: none;">Leer Substack</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -112,6 +112,31 @@
             border-color: #555;
         }
 
+        /* NUEVO: CONTENEDOR DE VIDEO DE YOUTUBE INTERACTIVO */
+        .video-wrapper {
+            max-width: 800px;
+            margin: 0 auto 60px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #222;
+            box-shadow: 0 10px 30px rgba(0, 229, 255, 0.15);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
         /* THE PROBLEM SECTION */
         .problem-section {
             background: var(--bg-card);
@@ -207,6 +232,20 @@
 
     <main class="container">
         
+        <!-- NUEVA SECCIÓN DE VIDEO DEMOSTRATIVO -->
+        <div class="video-wrapper">
+            <div class="video-container">
+                <!-- REEMPLAZA "ID_DE_TU_VIDEO_AQUI" POR EL ID DE TU VIDEO NO LISTADO DE YOUTUBE -->
+                <iframe 
+                    src="https://youtu.be/V4zB3tshiPI" 
+                    title="Chronos Edge Engine Demo" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
         <section class="problem-section">
             <div class="problem-grid">
                 <div>
